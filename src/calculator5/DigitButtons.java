@@ -24,7 +24,7 @@ public class DigitButtons extends BorderPane {
 	EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent event) {
-			System.out.println(digit);
+			//System.out.println(digit);
 			cl.text.addString(digit);
 			cl.inputFld.setText(cl.text.string);
 			

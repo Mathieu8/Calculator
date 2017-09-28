@@ -24,7 +24,7 @@ public class OperatorBtn extends BorderPane {
 	EventHandler<ActionEvent> buttonHandler = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent event) {
-			System.out.println(operator);
+			//System.out.println(operator);
 			cl.text.addString(operator);
 			cl.inputFld.setText(cl.text.string);
 			

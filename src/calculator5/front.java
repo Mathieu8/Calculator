@@ -1,7 +1,6 @@
 package calculator5;
 
-import static javafx.scene.input.KeyEvent.KEY_PRESSED;
-
+static javafx.scene.input.KeyEvent.KEY_PRESSED;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
