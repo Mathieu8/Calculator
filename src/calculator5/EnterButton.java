@@ -29,7 +29,6 @@ public class EnterButton extends BorderPane {
 			@Override
 			public void handle(ActionEvent enter) {
 				System.out.println(cl.text.string);
-				cl.text.readable();
 				cl.text.logical();
 				System.out.println(cl.text.string);
 				

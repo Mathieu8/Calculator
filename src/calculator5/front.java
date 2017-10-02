@@ -1,6 +1,5 @@
 package calculator5;
 
-static javafx.scene.input.KeyEvent.KEY_PRESSED;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,7 +26,7 @@ public class front extends Application {
 	// DigitButtons oneButton = new DigitButtons[digitBtn.length];
 
 	TextField inputFld = new TextField();
-	
+
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
@@ -45,9 +44,7 @@ public class front extends Application {
 		});
 
 		// Create the TextFields
-		
 
-		
 		// Both fields should be wide enough to display 15 chars
 		inputFld.setPrefColumnCount(15);
 		// Set ActionEvent handlers for both fields
@@ -62,33 +59,40 @@ public class front extends Application {
 		root.addRow(0, messageLbl);
 		root.addRow(2, inputFld);
 		root.addRow(3, messageLbl21);
-		
+
 		HBox d789 = new HBox();
 		HBox d456 = new HBox();
 		HBox d123 = new HBox();
 		HBox d0dot = new HBox();
-	    d789.getChildren().addAll(new DigitButtons("7", this),  new DigitButtons("8",this), new DigitButtons("9", this));
-	    d456.getChildren().addAll(new DigitButtons("4", this),  new DigitButtons("5",this), new DigitButtons("6", this));
-	    d123.getChildren().addAll(new DigitButtons("1", this),  new DigitButtons("2",this), new DigitButtons("3", this));
-	    d0dot.getChildren().addAll(new DigitButtons("0", this),  new DigitButtons(".",this));
-	    
+		d789.getChildren().addAll(new DigitButtons("7", this), new DigitButtons("8", this),
+				new DigitButtons("9", this));
+		d456.getChildren().addAll(new DigitButtons("4", this), new DigitButtons("5", this),
+				new DigitButtons("6", this));
+		d123.getChildren().addAll(new DigitButtons("1", this), new DigitButtons("2", this),
+				new DigitButtons("3", this));
+		d0dot.getChildren().addAll(new DigitButtons("0", this), new DigitButtons(".", this));
+
 		HBox odms = new HBox();
 		HBox omfc = new HBox();
 		HBox ompt = new HBox();
 		HBox opbobc = new HBox();
-		odms.getChildren().addAll(new DigitButtons("/", this),  new OperatorBtn("mod(",this), new OperatorBtn("sin(", this));
-		omfc.getChildren().addAll(new DigitButtons("*", this),  new OperatorBtn("!",this), new OperatorBtn("cos(", this));
-		ompt.getChildren().addAll(new DigitButtons("-", this),  new OperatorBtn("^",this), new OperatorBtn("tan(", this));
-		opbobc.getChildren().addAll(new DigitButtons("+", this),  new OperatorBtn("(",this), new OperatorBtn(")",this));
+		odms.getChildren().addAll(new DigitButtons("/", this), new OperatorBtn("mod(", this),
+				new OperatorBtn("sin(", this));
+		omfc.getChildren().addAll(new DigitButtons("*", this), new OperatorBtn("!", this),
+				new OperatorBtn("cos(", this));
+		ompt.getChildren().addAll(new DigitButtons("-", this), new OperatorBtn("^", this),
+				new OperatorBtn("tan(", this));
+		opbobc.getChildren().addAll(new DigitButtons("+", this), new OperatorBtn("(", this),
+				new OperatorBtn(")", this));
 		EnterButton enter = new EnterButton(this);
-		
+
 		VBox digid = new VBox();
-		digid.getChildren().addAll(d789,d456,d123,d0dot);
-	    VBox operator = new VBox();
-	    operator.getChildren().addAll(odms,omfc,ompt,opbobc);
-	    HBox test = new HBox();
-	    test.getChildren().addAll(digid, empty ,operator,enter);
-	    root.addRow(4, test);
+		digid.getChildren().addAll(d789, d456, d123, d0dot);
+		VBox operator = new VBox();
+		operator.getChildren().addAll(odms, omfc, ompt, opbobc);
+		HBox test = new HBox();
+		test.getChildren().addAll(digid, empty, operator, enter);
+		root.addRow(4, test);
 
 		// Set the Size of the GridPane
 		root.setMinSize(400, 250);
@@ -127,9 +131,6 @@ public class front extends Application {
 		String input = String.valueOf(tf.getText());
 		text.newString(input);
 		printMessage(text.string);
-		if (e.getEventType() == KEY_PRESSED && e.getCode() == KeyCode.F1) {
-			//
-			e.consume();
-		}
+		e.consume();
 	}
 }

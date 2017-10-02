@@ -1,6 +1,8 @@
 package calculator5;
 
 public class MakingText {
+	String numbers = "1234567890.";
+	String operators = "+-*/^!()abcdefghijklmnopqrstuvwxyz";
 	String string = "";
 	boolean empty = true;
 
@@ -43,8 +45,11 @@ public class MakingText {
 		String temp = "";
 		int b = 0;
 		for (int i = 0; i < string.length(); i++) {
+			System.out.println(temp);
 			if (string.charAt(i) == ' ') {
 			} else if (string.charAt(i) == 'x')
+				temp += '*';
+			else if (string.charAt(i) == 'X')
 				temp += '*';
 			else if (string.charAt(i) == '(') {
 				b += 1;
@@ -62,99 +67,82 @@ public class MakingText {
 		}
 		if (b != 0) {
 			b--;
-			for (b++; b > 0; b--)
+			for (b++; b > 0; b--) {
 				temp += ')';
+				System.out.println(temp);
+			}
 		}
 		string = temp;
+		System.out.println(string);
 	}
 
 	void logical() {
+		readable();
 		logicalGemo();
 		logicalDot();
 	}
 
 	void logicalGemo() {
+		System.out.println("Logical Gemo");
 		String temp = "";
 		int l = string.length();
-		for (int i = 0; i < l-4; i++) {
+		for (int i = 0; i < l; i++) {
+			System.out.println(temp);
+			if (i < l - 4) {
 				// sin
 				if ((aNumber(i)) && ((string.charAt(i + 1) == 's') && (string.charAt(i + 2) == 'i')
 						&& (string.charAt(i + 3) == 'n'))) {
-					temp += string.charAt(i) + '*';
-				}
-				// cos
-				else if ((aNumber(i)) && ((string.charAt(i + 1) == 'c') && (string.charAt(i + 2) == 'o')
+					temp = temp + string.charAt(i) + "*";
+				} else if ((aNumber(i)) && ((string.charAt(i + 1) == 'c') && (string.charAt(i + 2) == 'o')
 						&& (string.charAt(i + 3) == 's'))) {
-					temp += string.charAt(i) + '*';
-				}
-				// tan
-				else if ((aNumber(i)) && ((string.charAt(i + 1) == 't') && (string.charAt(i + 2) == 'a')
+					temp = temp + string.charAt(i) + "*";
+				} else if ((aNumber(i)) && ((string.charAt(i + 1) == 't') && (string.charAt(i + 2) == 'a')
 						&& (string.charAt(i + 3) == 'n'))) {
-					temp += string.charAt(i) + '*';
-				}
-				else temp += string.charAt(i);
+					temp = temp + string.charAt(i) + "*";
+				} else
+					temp += string.charAt(i);
 				
-			}
+			} else
+				temp += string.charAt(i);
+
+		}
+		System.out.println(temp);
 		string = temp;
 	}
 
 	void logicalDot() {
+		
+		System.out.println();
+		System.out.println("logical dot");
 		String temp = "";
-		for (int i = 0; i < string.length()-1; i++) {
-			if(!(string.charAt(i)=='.')&& !anOperator(i+1)) {
+		
+		for (int i = 0; i < string.length() - 1; i++) {
+			System.out.print(temp);
+			if ((string.charAt(i) == '.') && anOperator(i + 1)) {
+				System.out.println(" A ");
+				//temp += string.charAt(i);
+			} else {
+				System.out.println(" B ");
 				temp += string.charAt(i);
 			}
-			else temp += string.charAt(i);
 		}
+		
+		temp += string.charAt(string.length()-1);
 		string = temp;
+		System.out.println(string);
 
 	}
 
 	boolean anOperator(int i) {
-		if (string.charAt(i) == '+')
-			return true;
-		if (string.charAt(i) == '-')
-			return true;
-		if (string.charAt(i) == '*')
-			return true;
-		if (string.charAt(i) == '/')
-			return true;
-		if (string.charAt(i) == '!')
-			return true;
-		if (string.charAt(i) == '^')
-			return true;
-		if (string.charAt(i) == '(')
-			return true;
-		if (string.charAt(i) == ')')
-			return true;
-		return false;
+		char ch = string.charAt(i);
+		String CH = "" + ch;
+		return operators.contains(CH);
 	}
 
 	boolean aNumber(int i) {
-		if (string.charAt(i) == '0')
-			return true;
-		if (string.charAt(i) == '1')
-			return true;
-		if (string.charAt(i) == '2')
-			return true;
-		if (string.charAt(i) == '3')
-			return true;
-		if (string.charAt(i) == '4')
-			return true;
-		if (string.charAt(i) == '5')
-			return true;
-		if (string.charAt(i) == '6')
-			return true;
-		if (string.charAt(i) == '7')
-			return true;
-		if (string.charAt(i) == '8')
-			return true;
-		if (string.charAt(i) == '9')
-			return true;
-		if (string.charAt(i) == '.')
-			return true;
-		else
-			return false;
+		char ch = string.charAt(i);
+		String CH = "" + ch;
+		return numbers.contains(CH);
 
 	}
 }
