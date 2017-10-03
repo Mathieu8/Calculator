@@ -45,7 +45,7 @@ public class MakingText {
 		String temp = "";
 		int b = 0;
 		for (int i = 0; i < string.length(); i++) {
-			System.out.println(temp);
+			//System.out.println(temp);
 			if (string.charAt(i) == ' ') {
 			} else if (string.charAt(i) == 'x')
 				temp += '*';
@@ -73,7 +73,7 @@ public class MakingText {
 			}
 		}
 		string = temp;
-		System.out.println(string);
+		//System.out.println(string);
 	}
 
 	void logical() {
@@ -83,11 +83,11 @@ public class MakingText {
 	}
 
 	void logicalGemo() {
-		System.out.println("Logical Gemo");
+		//System.out.println("Logical Gemo");
 		String temp = "";
 		int l = string.length();
 		for (int i = 0; i < l; i++) {
-			System.out.println(temp);
+			//System.out.println(temp);
 			if (i < l - 4) {
 				// sin
 				if ((aNumber(i)) && ((string.charAt(i + 1) == 's') && (string.charAt(i + 2) == 'i')
@@ -106,30 +106,30 @@ public class MakingText {
 				temp += string.charAt(i);
 
 		}
-		System.out.println(temp);
+		//System.out.println(temp);
 		string = temp;
 	}
 
 	void logicalDot() {
 		
-		System.out.println();
-		System.out.println("logical dot");
+		//System.out.println();
+		//System.out.println("logical dot");
 		String temp = "";
 		
 		for (int i = 0; i < string.length() - 1; i++) {
-			System.out.print(temp);
+			//System.out.print(temp);
 			if ((string.charAt(i) == '.') && anOperator(i + 1)) {
-				System.out.println(" A ");
+				//System.out.println(" A ");
 				//temp += string.charAt(i);
 			} else {
-				System.out.println(" B ");
+				//System.out.println(" B ");
 				temp += string.charAt(i);
 			}
 		}
 		
 		temp += string.charAt(string.length()-1);
 		string = temp;
-		System.out.println(string);
+		//System.out.println(string);
 
 	}
 

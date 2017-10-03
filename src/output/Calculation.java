@@ -5,9 +5,10 @@ import java.io.IOException;
 import input.Tree;
 
 public class Calculation {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		Error error = new Error();
 		String a = args[0]; // getString();
+		System.out.println("inside calculation");
 		Tree theTree = new Tree();
 		theTree.createTree(a, 0);
 		try {
