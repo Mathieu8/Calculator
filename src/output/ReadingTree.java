@@ -60,7 +60,7 @@ public class ReadingTree {
 						c = SimpleOperations.division(a, b);
 					} // end if division
 
-					if (localRoot.operator == "mod(") {
+					if (localRoot.operator == "mod") {
 
 						c = SimpleOperations.modulus(a, b);
 						// end else if devider != 0

@@ -10,7 +10,7 @@ import input.Tree;
 public class Test {
 	public static void main(String[] args) throws IOException {
 		Error error = new Error();
-		String a = args[0]; //getString();
+		String a = "4mod(3)"; //args[0]; //getString();
 		Tree theTree = new Tree();
 		theTree.createTree(a, 0);
 

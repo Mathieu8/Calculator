@@ -33,6 +33,7 @@ public class front extends Application {
 
 	@Override
 	public void start(Stage stage) {
+		
 		Button oneBtn = new Button("1");
 		// Add EventHandler to the Button
 		oneBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -91,7 +92,8 @@ public class front extends Application {
 		VBox operator = new VBox();
 		operator.getChildren().addAll(odms, omfc, ompt, opbobc);
 		HBox test = new HBox();
-		test.getChildren().addAll(digid, empty, operator, enter);
+		test.getChildren().addAll(digid, empty, operator, enter)
+		;
 		root.addRow(4, test);
 
 		// Set the Size of the GridPane

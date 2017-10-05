@@ -17,8 +17,10 @@ public class MakingText {
 	}
 
 	void addString(String s) {
-		empty = false;
 		string += s;
+		if (string.equals("")) {
+			empty = false;
+		}
 	}
 
 	void newString(String s) {
@@ -43,9 +45,13 @@ public class MakingText {
 
 	void readable() {
 		String temp = "";
+
+		if (temp.equals(string)) {
+			empty = true;
+		}
+
 		int b = 0;
 		for (int i = 0; i < string.length(); i++) {
-			//System.out.println(temp);
 			if (string.charAt(i) == ' ') {
 			} else if (string.charAt(i) == 'x')
 				temp += '*';
@@ -73,21 +79,21 @@ public class MakingText {
 			}
 		}
 		string = temp;
-		//System.out.println(string);
 	}
 
 	void logical() {
 		readable();
-		logicalGemo();
-		logicalDot();
+		if (empty) {
+			logicalGemo();
+			logicalDot();
+		}
 	}
 
 	void logicalGemo() {
-		//System.out.println("Logical Gemo");
+		System.out.println("Logical Gemo");
 		String temp = "";
 		int l = string.length();
 		for (int i = 0; i < l; i++) {
-			//System.out.println(temp);
 			if (i < l - 4) {
 				// sin
 				if ((aNumber(i)) && ((string.charAt(i + 1) == 's') && (string.charAt(i + 2) == 'i')
@@ -101,35 +107,41 @@ public class MakingText {
 					temp = temp + string.charAt(i) + "*";
 				} else
 					temp += string.charAt(i);
-				
+
 			} else
 				temp += string.charAt(i);
 
 		}
-		//System.out.println(temp);
 		string = temp;
 	}
 
 	void logicalDot() {
-		
-		//System.out.println();
-		//System.out.println("logical dot");
 		String temp = "";
-		
-		for (int i = 0; i < string.length() - 1; i++) {
-			//System.out.print(temp);
-			if ((string.charAt(i) == '.') && anOperator(i + 1)) {
-				//System.out.println(" A ");
-				//temp += string.charAt(i);
-			} else {
-				//System.out.println(" B ");
-				temp += string.charAt(i);
+		String temp1 = string;
+		boolean dot = true;
+		while (dot) {
+			for (int i = 0; i < temp1.length() - 1; i++) {
+				if (temp1.charAt(i) == '.') {
+					if (anOperator(i + 1)) {
+					}
+					if (temp1.charAt(i + 1) == '.') {
+					} else {
+						temp += temp1.charAt(i);
+					}
+				} else {
+					temp += temp1.charAt(i);
+				}
+				
 			}
+			
+
+			temp += temp1.charAt(temp1.length() - 1);
+			if (temp.equals(temp1)) {
+					dot = false;
+				}
+			temp1 = temp;
 		}
-		
-		temp += string.charAt(string.length()-1);
 		string = temp;
-		//System.out.println(string);
 
 	}
 

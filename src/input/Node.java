@@ -112,19 +112,19 @@ public class Node {
 					splitsLocatie = i;
 					operator = "/";
 				}
-				if (((operator == "^") | (operator == "")) && (string.charAt(i) == '%')) {
+				if (((operator == "^") | (operator == "")) && (string.indexOf("mod(")) == i) {
 					splitsLocatie = i;
-					operator = "%";
+					operator = "mod";
 				}
 				if ((operator == "") && (string.charAt(i) == '^')) {
 					splitsLocatie = i;
 					operator = "^";
 				}
+				if ((operator == "" ) &&(string.charAt(string.length() - 1) == '!')) {
+					operator = "!";
+				}
 				if (i == 0) {
 					if ((operator != "*") && (operator != "/") && (operator != "%") && (operator != "^")) {
-						if (string.charAt(string.length() - 1) == '!') {
-							operator = "!";
-						}
 						splitsLocatie = 0;
 						if (string.indexOf("sin(") == i) {
 							operator = "sin(";
@@ -146,6 +146,7 @@ public class Node {
 	}
 
 	boolean singleNumberOperations(int i) {
+		//if ((operator != "+") &&(operator != "*") && (operator != "/") && (operator != "%")  && (operator != "^")) {
 		if (string.indexOf("sin(") == i) {
 			operator = "sin";
 			return true;
@@ -162,15 +163,14 @@ public class Node {
 			operator = "(";
 			return true;
 		} // end if parentheses
+		if ((operator == "!" ) && (string.indexOf("!") == string.length() - 1)) {
+			operator = "!";
+			return true;
+		}
 		if ((string.indexOf("-") == i) && (i == 0)) {
 			operator = "-";
 			return true;
 		}
-		if (string.indexOf("!") == string.length() - 1) {
-			operator = "!";
-			return true;
-		}
-
 		return false;
 	}
 
@@ -189,6 +189,9 @@ public class Node {
 
 	void afterSplits(int splits) {
 		after = "";
+		if (operator == "mod") {
+			splitsLocatie +=2;
+		}
 		if (operator == "(") {
 			for (int i = 1; i < string.length() - 1; i++) {
 				after = after + string.charAt(i);
