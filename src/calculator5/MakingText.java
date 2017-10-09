@@ -5,6 +5,10 @@ public class MakingText {
 	String operators = "+-*/^!()abcdefghijklmnopqrstuvwxyz";
 	String string = "";
 	boolean empty = true;
+	String Error;
+	double answer;
+	
+	String getText() { return string;}
 
 	void addChar(char c) {
 		empty = false;
@@ -118,29 +122,30 @@ public class MakingText {
 	void logicalDot() {
 		String temp = "";
 		String temp1 = string;
-		boolean dot = true;
-		while (dot) {
-			for (int i = 0; i < temp1.length() - 1; i++) {
-				if (temp1.charAt(i) == '.') {
-					if (anOperator(i + 1)) {
-					}
-					if (temp1.charAt(i + 1) == '.') {
-					} else {
-						temp += temp1.charAt(i);
-					}
+		// while (dot) {
+		for (int i = 0; i < temp1.length() - 1; i++) {
+			boolean dot = false;
+			if (anOperator(i)) {
+				dot = true;
+			}
+			if (temp1.charAt(i) == '.') {
+				if (anOperator(i + 1)) {
+				} else if (temp1.charAt(i + 1) == '.') {
+				} else if (dot) {
 				} else {
 					temp += temp1.charAt(i);
 				}
-				
+			} else {
+				temp += temp1.charAt(i);
 			}
-			
 
-			temp += temp1.charAt(temp1.length() - 1);
-			if (temp.equals(temp1)) {
-					dot = false;
-				}
-			temp1 = temp;
+			// }
 		}
+
+		temp += temp1.charAt(temp1.length() - 1);
+		
+		temp1 = temp;
+
 		string = temp;
 
 	}

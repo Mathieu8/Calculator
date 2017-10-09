@@ -1,11 +1,27 @@
 package calculator5;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import output.Calculation;
 
 public class CalculationServer {
+	front cl;
+	String question ;//= cl.text.string;
+	double answer;
+	String ErrorNote;
+	
+	void runCalculation() {
+		Calculation cal = new Calculation();
+		cal.setQuestion(question);
+		cal.makeTree();
+		answer = cal.returnAnswer();
+		ErrorNote = cal.returnError();
+				
+	}
+	
+	
+	
 
+}
+	/*
 	static int Tree(String command, String calculation) throws Exception {
 		System.out.println("just inside making tree");
 		Process pro = Runtime.getRuntime().exec(command + " (" + calculation + ")");
@@ -26,3 +42,4 @@ public class CalculationServer {
       }
 	
 }
+*/

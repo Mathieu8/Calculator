@@ -1,28 +1,38 @@
 package output;
 
-import java.io.IOException;
 
 import input.Tree;
 
 public class Calculation {
-	public static void main(String[] args) {
-		Error error = new Error();
-		String a = args[0]; // getString();
+	// public static void main(String[] args) {
+	Error error = new Error();
+	String question; // getString();
+	static Double answer;
+	String ErrorNote;
+
+	public void makeTree() {
 		System.out.println("inside calculation");
 		Tree theTree = new Tree();
-		theTree.createTree(a, 0);
+		theTree.createTree(question, 0);
 		try {
 			ReadingTree.readingTree(theTree.root);
 		} catch (ArithmeticException exc) {
 			error.DivedeByZerroError();
 		}
-		if (Error.error) {
-			System.out.print("Error: ");
-			if (Error.divedeByZeroError) {
-				System.out.println("Dividing By Zero Error");
-			}
-		} else {
-			System.out.println("Answer " + theTree.root.iData);
-		}
+		ErrorNote = error.ErrorCheck();
+		answer = theTree.root.iData;
+		
+	}
+	
+	public void setQuestion(String temp){
+		question = temp;
+	}
+	
+	public double returnAnswer() {
+		return answer;
+	}
+	
+	public String returnError() {
+		return ErrorNote;
 	}
 }

@@ -1,16 +1,17 @@
 package calculator5;
 
 import javafx.event.ActionEvent;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import javafx.scene.control.Label;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 public class EnterButton extends BorderPane {
 	front cl;
-	String string;
+	String error;
+	double answer;
+	CalculationServer cal =new CalculationServer(); 
+	
 
 	public EnterButton(front clc) {
 		// string = s;
@@ -35,15 +36,23 @@ public class EnterButton extends BorderPane {
 		public void handle(ActionEvent enter) {
 			cl.text.logical();
 			
-			try {
-				CalculationServer.Tree("javac -cp src/output Calculation", cl.text.string);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			cal.question =cl.text.string;
+			cal.runCalculation();
+			//error = cal.ErrorNote;
+			//answer = cal.answer;
+			//CalculationServer.
+			
+			
 			
 			enter.consume();
 		}
 	};
+	
+	void isThereAError() {
+		if (cal.ErrorNote.indexOf("ERROR")==-1) {
+			cl.messageLbl21 = cal.answer; 
+		}
+	}
 	
     
 
