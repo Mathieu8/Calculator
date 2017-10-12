@@ -17,10 +17,12 @@ import javafx.stage.Stage;
 public class front extends Application {
 	// Create the Message Label
 	Label messageLbl = new Label("Enter your Name into the Text Fields.");
-	Label messageLbl21 = new Label("E-------------------");
 	Label empty = new Label("   ");
 
 	MakingText text = new MakingText();
+	CalculationServer cal =new CalculationServer(); 
+	TextField answerLine = new TextField();
+	//answerLine.isEditable(false);
 
 	String digitBtn[] = { "1" };
 	// DigitButtons oneButton = new DigitButtons[digitBtn.length];
@@ -50,6 +52,7 @@ public class front extends Application {
 		inputFld.setPrefColumnCount(15);
 		// Set ActionEvent handlers for both fields
 		inputFld.setOnKeyReleased(e -> handle(e, inputFld));
+		answerLine.setText("test");
 
 		GridPane root = new GridPane();
 		// Set the horizontal spacing to 10px
@@ -59,7 +62,11 @@ public class front extends Application {
 		// Add Labels and Fields to the GridPane
 		root.addRow(0, messageLbl);
 		root.addRow(2, inputFld);
-		root.addRow(3, messageLbl21);
+		
+		
+		
+			root.addRow(3, answerLine);
+		
 
 		HBox d789 = new HBox();
 		HBox d456 = new HBox();

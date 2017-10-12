@@ -15,9 +15,9 @@ public class Test {
 		theTree.createTree(a, 0);
 
 		ReadingTree.readingTree(theTree.root);
-		if (Error.error) {
+		if (error.error) {
 			System.out.print("Error: ");
-			if (Error.divedeByZeroError) {
+			if (error.divedeByZeroError) {
 				System.out.println("Dividing By Zero Error");
 			}
 		} else {
@@ -34,9 +34,9 @@ public class Test {
 		theTree1.createTree(a1, 0);
 
 		ReadingTree.readingTree(theTree1.root);
-		if (Error.error) {
+		if (error.error) {
 			System.out.print("Error: ");
-			if (Error.divedeByZeroError) {
+			if (error.divedeByZeroError) {
 				System.out.println("Dividing By Zero Error");
 			}
 		} else {

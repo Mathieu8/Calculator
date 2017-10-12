@@ -14,6 +14,7 @@ public class Calculation {
 		System.out.println("inside calculation");
 		Tree theTree = new Tree();
 		theTree.createTree(question, 0);
+		System.out.println("test line");
 		try {
 			ReadingTree.readingTree(theTree.root);
 		} catch (ArithmeticException exc) {

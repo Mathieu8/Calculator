@@ -10,8 +10,7 @@ public class EnterButton extends BorderPane {
 	front cl;
 	String error;
 	double answer;
-	CalculationServer cal =new CalculationServer(); 
-	
+	// CalculationServer cal =new CalculationServer();
 
 	public EnterButton(front clc) {
 		// string = s;
@@ -29,31 +28,21 @@ public class EnterButton extends BorderPane {
 
 	}
 
-
-
 	EventHandler<ActionEvent> enterBtn = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent enter) {
 			cl.text.logical();
-			
-			cal.question =cl.text.string;
-			cal.runCalculation();
-			//error = cal.ErrorNote;
-			//answer = cal.answer;
-			//CalculationServer.
-			
-			
-			
+
+			cl.cal.question = cl.text.string;
+			cl.cal.runCalculation();
+			// error = cal.ErrorNote;
+			// answer = cal.answer;
+			// CalculationServer.
+			cl.answerLine.setText(cl.cal.finalAnswer);
+
 			enter.consume();
 		}
 	};
-	
-	void isThereAError() {
-		if (cal.ErrorNote.indexOf("ERROR")==-1) {
-			cl.messageLbl21 = cal.answer; 
-		}
-	}
-	
-    
+
 
 }
