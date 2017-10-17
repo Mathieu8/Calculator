@@ -7,32 +7,35 @@ public class Calculation {
 	// public static void main(String[] args) {
 	Error error = new Error();
 	String question; // getString();
-	static Double answer;
+	static Double answer = 0.5/0;
 	String ErrorNote;
+	
 
 	public void makeTree() {
-		System.out.println("inside calculation");
 		Tree theTree = new Tree();
 		theTree.createTree(question, 0);
-		System.out.println("test line");
 		try {
+			//System.out.println("inside calculation");
 			ReadingTree.readingTree(theTree.root);
-		} catch (ArithmeticException exc) {
+			System.out.println("test line");
+		} catch (Exception exc) {
 			error.DivedeByZerroError();
 		}
 		ErrorNote = error.ErrorCheck();
+		System.out.println(ErrorNote);
 		answer = theTree.root.iData;
-		
+		error.errorReset();
+
 	}
-	
-	public void setQuestion(String temp){
+
+	public void setQuestion(String temp) {
 		question = temp;
 	}
-	
+
 	public double returnAnswer() {
 		return answer;
 	}
-	
+
 	public String returnError() {
 		return ErrorNote;
 	}

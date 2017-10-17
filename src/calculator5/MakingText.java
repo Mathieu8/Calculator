@@ -1,6 +1,7 @@
 package calculator5;
 
 public class MakingText {
+	boolean logical = true;
 	String numbers = "1234567890.";
 	String operators = "+-*/^!()abcdefghijklmnopqrstuvwxyz";
 	String string = "";
@@ -122,13 +123,20 @@ public class MakingText {
 	void logicalDot() {
 		String temp = "";
 		String temp1 = string;
-		// while (dot) {
+		logical = true;
+		boolean dot = false;
 		for (int i = 0; i < temp1.length() - 1; i++) {
-			boolean dot = false;
-			if (anOperator(i)) {
-				dot = true;
+			if (!logical) {
+				break;
 			}
 			if (temp1.charAt(i) == '.') {
+				if (dot) {
+					logical = false;
+					System.out.println("set logical in making text: " + logical);
+				}
+				if (!dot) {
+					dot = true;
+				}
 				if (anOperator(i + 1)) {
 				} else if (temp1.charAt(i + 1) == '.') {
 				} else if (dot) {

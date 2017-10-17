@@ -2,6 +2,7 @@ package output;
 
 //import input.Tree;
 import input.Node;
+import java.util.InputMismatchException;
 
 public class ReadingTree {
 
@@ -56,8 +57,7 @@ public class ReadingTree {
 					} // end if multiplication
 
 					if (localRoot.operator == "/") {
-
-						c = SimpleOperations.division(a, b);
+							c = SimpleOperations.division(a, b);
 					} // end if division
 
 					if (localRoot.operator == "mod") {
@@ -75,7 +75,7 @@ public class ReadingTree {
 				// System.out.print(localRoot.iData + " ");
 			} // end else
 		} // end if localRoot!=null
-		// }
+			// }
 
 		System.out.println(c);
 		return c;

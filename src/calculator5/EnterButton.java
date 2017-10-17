@@ -34,6 +34,8 @@ public class EnterButton extends BorderPane {
 			cl.text.logical();
 
 			cl.cal.question = cl.text.string;
+			System.out.println("set logcial in enterbtn: " + cl.text.logical);
+			cl.cal.logical = cl.text.logical;
 			cl.cal.runCalculation();
 			// error = cal.ErrorNote;
 			// answer = cal.answer;
@@ -43,6 +45,5 @@ public class EnterButton extends BorderPane {
 			enter.consume();
 		}
 	};
-
 
 }

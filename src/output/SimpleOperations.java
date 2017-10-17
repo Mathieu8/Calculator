@@ -1,6 +1,7 @@
 package output;
 
-public class SimpleOperations {
+public strictfp class SimpleOperations {
+	static Calculation cl;
 
 	static double plus(double leftChild, double rightChild) {
 		double sum = leftChild + rightChild;
@@ -19,12 +20,19 @@ public class SimpleOperations {
 
 	static double division(double leftChild, double rightChild) {
 		double div = leftChild / rightChild;
+		if (rightChild == 0) {
+			cl.error.DivedeByZerroError();
+		}
+
 		return div;
 
 	}
 
 	static double modulus(double leftChild, double rightChild) {
 		double mod = leftChild % rightChild;
+		if (rightChild == 0) {
+			cl.error.DivedeByZerroError();
+		}
 		return mod;
 	}
 

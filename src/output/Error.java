@@ -5,17 +5,17 @@ public class Error {
 	 boolean makeNoSenseError = false;
 	 boolean divedeByZeroError = false;
 	
-	void DivedeByZerroError(){
+	public void DivedeByZerroError(){
 		error = true;
 		divedeByZeroError = true;
 	}
 	
-	 void MakesNoSenseError() { 
+	public void MakesNoSenseError() { 
 	error = true;
 	makeNoSenseError = true;
 	}
 	
-	String ErrorCheck(){
+	public String ErrorCheck(){
 		if (error){
 			if (makeNoSenseError) {
 				return "ERROR: Calculation doesn't make sense";
@@ -27,5 +27,12 @@ public class Error {
 		
 		return "";
 	}
+	
+	public void errorReset() {
+		 error = false;
+		 makeNoSenseError = false;
+		 divedeByZeroError = false;
+	}
 
+	
 }

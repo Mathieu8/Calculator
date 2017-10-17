@@ -52,9 +52,10 @@ public class front extends Application {
 		inputFld.setPrefColumnCount(15);
 		// Set ActionEvent handlers for both fields
 		inputFld.setOnKeyReleased(e -> handle(e, inputFld));
-		answerLine.setText("test");
+		answerLine.setText(" ");
 
 		GridPane root = new GridPane();
+		GridPane test1 = new GridPane();
 		// Set the horizontal spacing to 10px
 		root.setHgap(10);
 		// Set the vertical spacing to 5px
@@ -99,9 +100,9 @@ public class front extends Application {
 		VBox operator = new VBox();
 		operator.getChildren().addAll(odms, omfc, ompt, opbobc);
 		HBox test = new HBox();
-		test.getChildren().addAll(digid, empty, operator, enter)
-		;
+		test.getChildren().addAll(digid, empty, operator, enter);
 		root.addRow(4, test);
+		test1.addRow(1,test);
 
 		// Set the Size of the GridPane
 		root.setMinSize(400, 250);
@@ -114,8 +115,10 @@ public class front extends Application {
 				+ "-fx-border-insets: 5;" + "-fx-border-radius: 5;" + "-fx-border-color: BLACK;");
 		// Create the Scene
 		Scene scene = new Scene(root);
+		Scene scene1 = new Scene(test1);
 		// Add the scene to the Stage
 		stage.setScene(scene);
+		stage.setScene(scene1);
 		// Set the title of the Stage
 		stage.setTitle("A TextField Example");
 		// Display the Stage

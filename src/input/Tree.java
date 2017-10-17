@@ -18,7 +18,7 @@ public class Tree {
 		Node node = new Node();
 		node.string = string;
 		node.split();
-		System.out.println("string: " + node.string + " number: " + node.iData + " operator: " + node.operator);
+		//System.out.println("string: " + node.string + " number: " + node.iData + " operator: " + node.operator);
 		//if (iData * 2 + 2 < nodeArray.length) {
 			
 			if (node.numberOrOperator) {
